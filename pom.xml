@@ -185,7 +185,7 @@
 			<groupId>io.netty</groupId>
 			<!-- Use 'netty-all' for 4.0 or above  更新netty版本 -->
 			<artifactId>netty-all</artifactId>
-			<version>4.1.36.Final</version>
+			<version>4.1.42.Final</version>
 			<scope>compile</scope>
 		</dependency>
 		<!--    netty    -->
