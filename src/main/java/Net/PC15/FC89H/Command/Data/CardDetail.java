@@ -96,10 +96,10 @@ public class CardDetail extends Net.PC15.FC8800.Command.Data.CardDetail {
 			}
 			else {
 				BigInteger biLongMax = new BigInteger("18446744073709551615");
-				myLog.info("CardData:"+CardData);
+				// myLog.info("CardData:"+CardData);
 				// TODO
 				BigInteger biCardData = new BigInteger(this.CardData);
-				myLog.info("biCardData:"+biCardData);
+				// myLog.info("biCardData:"+biCardData);
 				if (biLongMax.compareTo(biCardData) <= 0) {
 					System.out.println("ERROR! 卡号超过最大值!");
 					throw new Exception("卡号超过最大值");
@@ -107,7 +107,7 @@ public class CardDetail extends Net.PC15.FC8800.Command.Data.CardDetail {
 				else {
 					String CardDataHex = (new BigInteger(this.CardData, 10)).toString(16);
 					CardDataHex = StringUtil.FillString(CardDataHex, 16, "0", false);
-					myLog.info("CardDataHex:"+CardDataHex);
+					// myLog.info("CardDataHex:"+CardDataHex);
 					StringUtil.HextoByteBuf(CardDataHex, data);
 				}
 			}
@@ -182,6 +182,6 @@ public class CardDetail extends Net.PC15.FC8800.Command.Data.CardDetail {
 		data.writeByte(this.EnterStatus);
 		TimeUtil.DateToBCD_yyMMddhhmmss(btTime, this.RecordTime);
 		data.writeBytes(btTime, 0, 6);
-		myLog.info("调试卡号data:"+ByteBufUtil.hexDump(data).toUpperCase());
+		// myLog.info("调试卡号data:"+ByteBufUtil.hexDump(data).toUpperCase());
 	}
 }

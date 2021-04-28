@@ -51,7 +51,7 @@ public class WriteCardListBySequence extends Net.PC15.FC8800.Command.Card.WriteC
 				dataBuf.setInt(0, iSize);
 			}
 			p.SetDataLen(dataBuf.readableBytes());
-			myLog.info("调试卡号dataBuf：" + ByteBufUtil.hexDump(dataBuf).toUpperCase());
+			// myLog.info("调试卡号dataBuf：" + ByteBufUtil.hexDump(dataBuf).toUpperCase());
 			compile.Compile();
 			this.mIndex = iIndex + 1;
 			this.CommandReady();

@@ -60,7 +60,7 @@ public class StringUtil {
 				if (hexString.length() % 2 == 1) {
 					hexString = "0" + hexString;
 				}
-				myLog.info("发送过程中的hexString："+hexString);
+				// myLog.info("发送过程中的hexString："+hexString);
 				byte[] digits = HexToByte_Digit;
 				byte[] sbuf = hexString.getBytes();
 				// TODO
@@ -71,10 +71,10 @@ public class StringUtil {
 					buf.writeByte((byte) iData);
 					++iIndex;
 				}
-				myLog.info("发送过程中的hexString2："+hexString);
-				myLog.info("发送过程中的hexString3digits："+ByteBufUtil.hexDump(digits).toUpperCase());
-				myLog.info("发送过程中的hexString4sbuf："+ByteBufUtil.hexDump(sbuf).toUpperCase());
-				myLog.info("发送过程中的hexString5buf："+ByteBufUtil.hexDump(buf).toUpperCase());
+				// myLog.info("发送过程中的hexString2："+hexString);
+				// myLog.info("发送过程中的hexString3digits："+ByteBufUtil.hexDump(digits).toUpperCase());
+				// myLog.info("发送过程中的hexString4sbuf："+ByteBufUtil.hexDump(sbuf).toUpperCase());
+				// myLog.info("发送过程中的hexString5buf："+ByteBufUtil.hexDump(buf).toUpperCase());
 			}
 		}
 	}

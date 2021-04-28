@@ -115,7 +115,7 @@ public class TCPClientConnector extends AbstractConnector {
 							myLog.info("发1:" + receiveStr1);
 							/* ============================== */
 							StackTraceElement[] stackTraceElements = Thread.currentThread().getStackTrace();
-							myLog.info("发送内容堆栈:" + Arrays.toString(stackTraceElements));
+							// myLog.info("发送内容堆栈:" + Arrays.toString(stackTraceElements));
 							packetBuf.markReaderIndex();
 							ByteBuf sendBuf = this._ClientChannel.alloc().buffer(packetBuf.readableBytes());
 							sendBuf.writeBytes(packetBuf);
@@ -126,8 +126,8 @@ public class TCPClientConnector extends AbstractConnector {
 							//							String receiveStr = LogUtil.bytes2HexString(receiveBytes);
 							//							myLog.info("发:" + receiveBytes + " " + receiveStr + "  ArraysToString " + Arrays.toString(receiveBytes));
 							/* ============================== */
-							String receiveStr2 = ByteBufUtil.hexDump(sendBuf).toUpperCase();
-							myLog.info("发2:" + receiveStr2);
+							// String receiveStr2 = ByteBufUtil.hexDump(sendBuf).toUpperCase();
+							// myLog.info("发2:" + receiveStr2);
 							/* ============================== */
 							this._ActivityCommand.SendCommand(this._Event);
 							this._WriteFuture.addListener(new WriteCallback(this));

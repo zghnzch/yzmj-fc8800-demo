@@ -50,36 +50,36 @@ public class FC8800PacketCompile implements INPacket {
 		long iLen = 34L + this._Packet.GetDataLen();
 		iLen *= 2L;
 		this._PacketData = ByteUtil.ALLOCATOR.buffer((int) iLen);
-		myLog.info("DFC577247426423AB731BA81CC9E3E50："+ByteBufUtil.hexDump(this._PacketData).toUpperCase());
+		// myLog.info("DFC577247426423AB731BA81CC9E3E50："+ByteBufUtil.hexDump(this._PacketData).toUpperCase());
 		this._PacketData.writeByte(126);
-		myLog.info("8EADE0B68C394DAB8922329EF9872B4E："+ByteBufUtil.hexDump(this._PacketData).toUpperCase());
+		// myLog.info("8EADE0B68C394DAB8922329EF9872B4E："+ByteBufUtil.hexDump(this._PacketData).toUpperCase());
 		this._CheckSum = 0L;
 		this.Push(StringUtil.FillString(this._Packet.GetSN(), 16, "F").getBytes());
-		myLog.info("70D73D6E4745463D94C91BA6D0431E55："+ByteBufUtil.hexDump(this._PacketData).toUpperCase());
+		// myLog.info("70D73D6E4745463D94C91BA6D0431E55："+ByteBufUtil.hexDump(this._PacketData).toUpperCase());
 		this.Push(UInt32Util.UINT32ToByteBuf(this._Packet.GetPassword()));
 		this.Push(UInt32Util.UINT32ToByteBuf(this._Packet.GetCode()));
-		myLog.info("2E3398D005A14073AB1DE20560B6DB6E："+ByteBufUtil.hexDump(this._PacketData).toUpperCase());
+		// myLog.info("2E3398D005A14073AB1DE20560B6DB6E："+ByteBufUtil.hexDump(this._PacketData).toUpperCase());
 		this.Push(this._Packet.GetCmdType());
 		this.Push(this._Packet.GetCmdIndex());
 		this.Push(this._Packet.GetCmdPar());
-		myLog.info("EA96B060CC8144EE90418541A7388D10："+ByteBufUtil.hexDump(this._PacketData).toUpperCase());
+		// myLog.info("EA96B060CC8144EE90418541A7388D10："+ByteBufUtil.hexDump(this._PacketData).toUpperCase());
 		this.Push(UInt32Util.UINT32ToByteBuf(this._Packet.GetDataLen()));
-		myLog.info("6DD0746C4A784008AAE880A81C2BD76F："+ByteBufUtil.hexDump(this._PacketData).toUpperCase());
+		// myLog.info("6DD0746C4A784008AAE880A81C2BD76F："+ByteBufUtil.hexDump(this._PacketData).toUpperCase());
 		if(this._Packet.GetDataLen() > 0L) {
-			myLog.info("285430189E52481EB7AC6C819E644363："+ByteBufUtil.hexDump(this._PacketData).toUpperCase());
+			// myLog.info("285430189E52481EB7AC6C819E644363："+ByteBufUtil.hexDump(this._PacketData).toUpperCase());
 			this.Push(this._Packet.GetDatabuff(), false);
-			myLog.info("670D0E1778864656B05DD9BEA194F33C："+ByteBufUtil.hexDump(this._PacketData).toUpperCase());
+			// myLog.info("670D0E1778864656B05DD9BEA194F33C："+ByteBufUtil.hexDump(this._PacketData).toUpperCase());
 		}
-		myLog.info("78C4B0877B05488495B7D2DD4E9EDA2B："+ByteBufUtil.hexDump(this._PacketData).toUpperCase());
+		// myLog.info("78C4B0877B05488495B7D2DD4E9EDA2B："+ByteBufUtil.hexDump(this._PacketData).toUpperCase());
 		short sum = (short) ((int) (this._CheckSum & 255L));
-		myLog.info("178B5ACED63440FD9E432A2BFF995DEC："+ByteBufUtil.hexDump(this._PacketData).toUpperCase());
+		// myLog.info("178B5ACED63440FD9E432A2BFF995DEC："+ByteBufUtil.hexDump(this._PacketData).toUpperCase());
 		this._Packet.SetPacketCheck(sum);
-		myLog.info("BF75D2593A094375ACF61F8AE4D67300："+ByteBufUtil.hexDump(this._PacketData).toUpperCase());
+		// myLog.info("BF75D2593A094375ACF61F8AE4D67300："+ByteBufUtil.hexDump(this._PacketData).toUpperCase());
 		this.Push(sum);
 		this._CheckSum = sum;
 		this._PacketData.writeByte(126);
 
-		myLog.info("620E8259ECA7434A80C0DB3688C6C3AB："+ByteBufUtil.hexDump(this._PacketData).toUpperCase());
+		// myLog.info("620E8259ECA7434A80C0DB3688C6C3AB："+ByteBufUtil.hexDump(this._PacketData).toUpperCase());
 	}
 	private void Push(int iByte) {
 		this._CheckSum += iByte;
@@ -131,7 +131,7 @@ public class FC8800PacketCompile implements INPacket {
 	}
 	@Override
 	public ByteBuf GetPacketData() {
-		myLog.info("调试门禁卡号错误1：" + ByteBufUtil.hexDump(this._PacketData).toUpperCase());
+		// myLog.info("调试门禁卡号错误1：" + ByteBufUtil.hexDump(this._PacketData).toUpperCase());
 		return this._PacketData;
 	}
 	@Override

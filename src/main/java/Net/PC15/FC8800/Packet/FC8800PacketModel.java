@@ -81,7 +81,7 @@ public class FC8800PacketModel implements INPacketModel {
 		this._CmdData = data;
 	}
 	public ByteBuf GetDatabuff() {
-		myLog.info("122D35760BA4450BAA5204E99A9F4312："+ ByteBufUtil.hexDump(this._CmdData).toUpperCase());
+		// myLog.info("122D35760BA4450BAA5204E99A9F4312："+ ByteBufUtil.hexDump(this._CmdData).toUpperCase());
 		return this._CmdData;
 	}
 	public void SetPacketCheck(short iData) {
